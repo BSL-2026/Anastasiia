@@ -1,6 +1,7 @@
 package main;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Scanner;
 
 public class Main {
@@ -14,15 +15,17 @@ public class Main {
         int year = scanner.nextInt();
 
         LocalDate date = LocalDate.of(year, month, day);
+        int age = Period.between(date, LocalDate.now()).getYears();
 
         System.out.printf(
-                "%s %s born on %s %d %s %d",
+                "%s %s born on %s %d %s %d and is %d  years old%n",
                 name,
                 surname,
                 date.getDayOfWeek(),
                 date.getDayOfMonth(),
                 date.getMonth(),
-                date.getYear()
+                date.getYear(),
+                age
         );
     }
 }
